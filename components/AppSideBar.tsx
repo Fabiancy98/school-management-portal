@@ -32,7 +32,7 @@ const AppSideBar = () => {
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link href="/" className="flex items-center justify-center">
-                <span>Smart School</span>
+                <span>Subeb Portal</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

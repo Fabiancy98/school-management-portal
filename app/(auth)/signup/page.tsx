@@ -1,6 +1,6 @@
-import { GalleryVerticalEnd } from "lucide-react"
+import { GalleryVerticalEnd } from "lucide-react";
 
-import { SignupForm } from "@/components/signup-form"
+import { SignupForm } from "@/components/signup-form";
 
 export default function SignupPage() {
   return (
@@ -10,10 +10,10 @@ export default function SignupPage() {
           <div className="bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-md">
             <GalleryVerticalEnd className="size-5" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-800">Smart School</h1>
+          <h1 className="text-2xl font-bold text-gray-800">Subeb Portal</h1>
         </div>
         <SignupForm className="w-full" />
       </div>
     </div>
-  )
+  );
 }

@@ -22,28 +22,28 @@ const DashboardHomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatsCard
               title="Students"
-              count={6123}
+              count={0}
               date="2024/05"
               color="bg-[#CFCEFF]"
               // textColor="text-purple-600"
             />
             <StatsCard
               title="Teachers"
-              count={1123}
+              count={32}
               date="2024/05"
               color="bg-[#FAE27C]"
               // textColor="text-yellow-600"
             />
             <StatsCard
               title="Parents"
-              count={1123}
+              count={0}
               date="2024/05"
               color="bg-[#CFCEFF]"
               // textColor="text-purple-600"
             />
             <StatsCard
               title="Staffs"
-              count={1123}
+              count={0}
               date="2024/05"
               color="bg-[#FAE27C]"
               // textColor="text-yellow-600"
