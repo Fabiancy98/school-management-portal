@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2025-05-29
+### Changed
+- Bumped version to 0.2.1
+
 ## [0.2.0] - 2025-05-29
 ### Added
 - Initial project setup with Next.js 15.3.2 and React 19

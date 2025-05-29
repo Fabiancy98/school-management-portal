@@ -36,6 +36,11 @@ This document outlines the architecture of the School Management Portal, a Next.
 3. Build for production: `npm run build`
 4. Start production server: `npm start`
 
+## Version History
+- 0.2.1 (2025-05-29): Version bump and documentation updates
+- 0.2.0 (2025-05-29): Initial project setup with Next.js 15.3.2 and React 19
+- 0.1.0 (2025-05-29): Initial commit with basic setup
+
 ## Deployment
 - The application is configured for Vercel deployment
 - Environment variables should be set in the deployment environment

@@ -1,6 +1,6 @@
 {
   "name": "school-management-portal",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "A modern school management portal built with Next.js and React",
   "author": "Your Name <your.email@example.com>",
