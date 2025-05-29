@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-05-29
+### Added
+- Firebase authentication system with email/password and Google sign-in
+- Login and signup pages with responsive design
+- Authentication context and protected routes
+- User session management
+- Error handling for authentication flows
+- Loading states and user feedback
+
+### Changed
+- Updated UI for auth pages with improved layout and styling
+- Restructured routing for better authentication flow
+- Updated navigation menu items and routes
+- Improved form validation and error handling
+- Bumped version to 0.3.0
+
 ## [0.2.1] - 2025-05-29
 ### Changed
 - Bumped version to 0.2.1
