@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.2.0] - 2025-05-29
 ### Added
 - Initial project setup with Next.js 15.3.2 and React 19
 - TypeScript configuration
@@ -17,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated package.json with additional metadata and scripts
+- Bumped version to 0.2.0
 
 ### Fixed
 - Initial project setup
