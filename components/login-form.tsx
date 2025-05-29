@@ -39,7 +39,7 @@ export function LoginForm({
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/teacher");
+      router.push("/dashboard");
     } catch (error: unknown) {
       const errorMessage =
         error instanceof Error ? error.message : "Failed to sign in";
@@ -55,7 +55,7 @@ export function LoginForm({
 
     try {
       await signInWithPopup(auth, googleProvider);
-      router.push("/teacher");
+      router.push("/dashboard");
     } catch (error: unknown) {
       const errorMessage =
         error instanceof Error

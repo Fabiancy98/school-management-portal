@@ -53,7 +53,7 @@ export function SignupForm({
         });
       }
 
-      router.push("/teacher");
+      router.push("/dashboard");
     } catch (error: unknown) {
       const errorMessage =
         error instanceof Error ? error.message : "Failed to sign up";
@@ -69,7 +69,7 @@ export function SignupForm({
 
     try {
       await signInWithPopup(auth, googleProvider);
-      router.push("/teacher");
+      router.push("/dashboard");
     } catch (error: unknown) {
       const errorMessage =
         error instanceof Error

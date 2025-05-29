@@ -13,7 +13,7 @@ export default function Home() {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, redirect to dashboard
-        router.push("/teacher");
+        router.push("/dashboard");
       } else {
         // No user is signed in, redirect to login page
         router.push("/login");

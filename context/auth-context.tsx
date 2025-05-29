@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signIn = async (email: string, password: string) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/teacher");
+      router.push("/dashboard");
     } catch (error) {
       console.error("Error signing in:", error);
       throw error;
@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         });
       }
 
-      router.push("/teacher");
+      router.push("/dashboard");
     } catch (error) {
       console.error("Error signing up:", error);
       throw error;
@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      router.push("/teacher");
+      router.push("/dashboard");
     } catch (error) {
       console.error("Error signing in with Google:", error);
       throw error;
