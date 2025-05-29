@@ -60,7 +60,7 @@ export function TeacherModal({ isOpen, onClose, teacher, mode, onSave }: Teacher
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: any) => ({
+    setFormData((prev: TeacherData) => ({
       ...prev,
       [name]: name === "pupils" ? parseInt(value) || 0 : value,
     }));

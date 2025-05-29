@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { DataTable } from "@/components/data-table";
 import { Eye, PenSquare, Plus } from "lucide-react";
+import Image from "next/image";
 import { ParentModal } from "@/components/parent-modal";
 import parentRecordsData from "@/data/parent_records.json";
 
@@ -87,11 +88,14 @@ const ParentPage = () => {
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                   {parent.passport_photo ? (
-                    <img 
-                      src={`/images/${parent.passport_photo}`} 
-                      alt={parent.full_name} 
-                      className="w-full h-full object-cover"
-                    />
+                    <div className="relative w-full h-full">
+                      <Image 
+                        src={`/images/${parent.passport_photo}`} 
+                        alt={parent.full_name} 
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                   ) : (
                     <span className="text-gray-500 text-xs">{parent.full_name.charAt(0)}</span>
                   )}
