@@ -242,44 +242,92 @@ const DashboardHomePage = () => {
           <Card>
             <div className="p-4">
               <div className="flex items-center justify-between mb-4">
-                <button className="text-gray-500">
+                <button 
+                  className="text-gray-500 hover:text-gray-700"
+                  onClick={() => {}}
+                >
                   <ChevronRightIcon className="w-4 h-4 rotate-180" />
                 </button>
-                <h3 className="font-semibold">August 2024</h3>
-                <button className="text-gray-500">
+                <h3 className="font-semibold">
+                  {new Date().toLocaleString('default', { month: 'long' })} {new Date().getFullYear()}
+                </h3>
+                <button 
+                  className="text-gray-500 hover:text-gray-700"
+                  onClick={() => {}}
+                >
                   <ChevronRightIcon className="w-4 h-4" />
                 </button>
               </div>
               <div className="grid grid-cols-7 gap-1">
-                {["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"].map(
+                {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map(
                   (day) => (
                     <div
                       key={day}
-                      className="text-xs text-center font-medium py-1"
+                      className="text-xs text-center font-medium py-1 text-gray-500"
                     >
                       {day}
                     </div>
                   )
                 )}
-                {[
-                  29, 30, 31, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-                  16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-                  31, 1,
-                ].map((day, i) => {
-                  const isCurrentMonth = day >= 1 && day <= 31;
-                  const isToday = day === 9;
-                  const isWeekend = i % 7 === 5 || i % 7 === 6;
-                  return (
-                    <div
-                      key={`${day}-${i}`}
-                      className={`text-xs text-center py-1 ${isCurrentMonth ? "" : "text-gray-400"} ${
-                        isToday ? "bg-blue-100 text-blue-800 rounded" : ""
-                      } ${isWeekend && isCurrentMonth ? "text-red-500" : ""}`}
-                    >
-                      {day}
-                    </div>
-                  );
-                })}
+                {(() => {
+                  const today = new Date();
+                  const currentYear = today.getFullYear();
+                  const currentMonth = today.getMonth();
+                  const currentDay = today.getDate();
+                  
+                  // Get first day of month (0 = Sunday, 1 = Monday, etc.)
+                  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+                  // Get number of days in current month
+                  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+                  // Get number of days in previous month
+                  const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate();
+                  
+                  const days = [];
+                  
+                  // Add days from previous month
+                  for (let i = firstDay - 1; i >= 0; i--) {
+                    days.push({
+                      day: daysInPrevMonth - i,
+                      isCurrentMonth: false,
+                      isToday: false
+                    });
+                  }
+                  
+                  // Add days from current month
+                  for (let i = 1; i <= daysInMonth; i++) {
+                    days.push({
+                      day: i,
+                      isCurrentMonth: true,
+                      isToday: i === currentDay
+                    });
+                  }
+                  
+                  // Add days from next month to complete the grid
+                  const remainingCells = 42 - days.length; // 6 rows x 7 days
+                  for (let i = 1; i <= remainingCells; i++) {
+                    days.push({
+                      day: i,
+                      isCurrentMonth: false,
+                      isToday: false
+                    });
+                  }
+                  
+                  return days.map(({ day, isCurrentMonth, isToday }, index) => {
+                    const isWeekend = index % 7 === 0 || index % 7 === 6; // Sunday (0) or Saturday (6)
+                    return (
+                      <div
+                        key={`${day}-${index}`}
+                        className={`text-xs text-center py-1 rounded-md ${
+                          !isCurrentMonth ? 'text-gray-300' : 
+                          isToday ? 'bg-[#1f1f64] text-white' : 
+                          isWeekend ? 'text-red-500' : ''
+                        }`}
+                      >
+                        {day}
+                      </div>
+                    );
+                  });
+                })()}
               </div>
             </div>
           </Card>
