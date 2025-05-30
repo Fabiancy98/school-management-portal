@@ -10,14 +10,14 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
-      <div className="h-screen w-full flex">
+      <div className="min-h-[100dvh] w-full flex">
         {/* Sidebar */}
         <AppSideBar />
         
         {/* Main Content */}
         <div className="flex-1 flex flex-col overflow-hidden">
           {/* Navbar with trigger */}
-          <div className="flex items-center h-16 border-b bg-white px-4">
+          <div className="flex items-center h-16 px-4 bg-gray-100">
             <SidebarTrigger className="mr-4" />
             <Navbar />
           </div>

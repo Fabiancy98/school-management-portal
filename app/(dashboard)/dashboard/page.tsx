@@ -22,38 +22,14 @@ const DashboardHomePage = () => {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatsCard
-          title="Students"
-          count={0}
-          date="2024/05"
-          color="bg-[#CFCEFF]"
-          // textColor="text-purple-600"
-        />
-        <StatsCard
-          title="Teachers"
-          count={32}
-          date="2024/05"
-          color="bg-[#FAE27C]"
-          // textColor="text-yellow-600"
-        />
-        <StatsCard
-          title="Parents"
-          count={0}
-          date="2024/05"
-          color="bg-[#CFCEFF]"
-          // textColor="text-purple-600"
-        />
-        <StatsCard
-          title="Staffs"
-          count={0}
-          date="2024/05"
-          color="bg-[#FAE27C]"
-          // textColor="text-yellow-600"
-        />
+        <StatsCard title="Students" count={0} date="2024/05" />
+        <StatsCard title="Teachers" count={32} date="2024/05" />
+        <StatsCard title="Parents" count={0} date="2024/05" />
+        <StatsCard title="Staffs" count={0} date="2024/05" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column */}
-        <div className="lg:col-span-2 space-y-6 flex">
+        {/* <div className="space-y-6"> */}
           {/* Students Section */}
           <Card title="Students">
             <div className="flex items-center justify-center p-6">
@@ -61,7 +37,7 @@ const DashboardHomePage = () => {
                 <div className="w-full h-full rounded-full bg-gray-100 flex items-center justify-center">
                   <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center">
                     <div className="flex space-x-2">
-                      <div className="text-blue-300">
+                      <div className="text-[#1f1f64]">
                         <svg
                           width="24"
                           height="48"
@@ -79,7 +55,7 @@ const DashboardHomePage = () => {
                           />
                         </svg>
                       </div>
-                      <div className="text-yellow-300">
+                      <div className="text-[#4a4a8a]">
                         <svg
                           width="24"
                           height="48"
@@ -116,7 +92,7 @@ const DashboardHomePage = () => {
                       cy="50"
                       r="45"
                       fill="none"
-                      stroke="#76A9FA"
+                      stroke="#1f1f64"
                       strokeWidth="10"
                       strokeDasharray="283"
                       strokeDashoffset="100"
@@ -128,7 +104,7 @@ const DashboardHomePage = () => {
                       cy="50"
                       r="45"
                       fill="none"
-                      stroke="#FACA15"
+                      stroke="#4a4a8a"
                       strokeWidth="10"
                       strokeDasharray="283"
                       strokeDashoffset="180"
@@ -141,14 +117,14 @@ const DashboardHomePage = () => {
             </div>
             <div className="flex justify-center space-x-12 pb-4">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-blue-300"></div>
+                <div className="w-3 h-3 rounded-full bg-[#1f1f64]"></div>
                 <div>
                   <div className="font-bold">1,234</div>
                   <div className="text-xs text-gray-500">Boys</div>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-yellow-300"></div>
+                <div className="w-3 h-3 rounded-full bg-[#4a4a8a]"></div>
                 <div>
                   <div className="font-bold">1,134</div>
                   <div className="text-xs text-gray-500">Girls</div>
@@ -164,8 +140,8 @@ const DashboardHomePage = () => {
                 <div className="w-full h-full">
                   <ChartContainer
                     config={{
-                      present: { color: "#f59e0b" },
-                      absent: { color: "#93c5fd" },
+                      present: { color: "#4a4a8a" },  // Lighter shade of base color
+                      absent: { color: "#1f1f64" },    // Base color
                     }}
                     className="h-full"
                   >
@@ -222,7 +198,7 @@ const DashboardHomePage = () => {
                         name="Present"
                         radius={[4, 4, 0, 0]}
                         barSize={16}
-                        fill="#f59e0b"
+                        fill="#4a4a8a"
                       >
                         <LabelList
                           dataKey="present"
@@ -236,7 +212,7 @@ const DashboardHomePage = () => {
                         name="Absent"
                         radius={[4, 4, 0, 0]}
                         barSize={16}
-                        fill="#93c5fd"
+                        fill="#1f1f64"
                       >
                         <LabelList
                           dataKey="absent"
@@ -251,61 +227,17 @@ const DashboardHomePage = () => {
               </div>
               <div className="flex justify-center gap-6 mt-2">
                 <div className="flex items-center">
-                  <div className="w-3 h-3 rounded-full bg-[#f59e0b] mr-1"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#4a4a8a] mr-1"></div>
                   <span className="text-xs">Present</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-3 h-3 rounded-full bg-[#93c5fd] mr-1"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#1f1f64] mr-1"></div>
                   <span className="text-xs">Absent</span>
                 </div>
               </div>
             </div>
           </Card>
 
-          {/* Finance Section */}
-          {/* <Card title="Finance">
-            <div className="p-4">
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="flex items-center space-x-1">
-                  <div className="w-2 h-2 rounded-full bg-blue-300"></div>
-                  <span className="text-xs text-gray-500">income</span>
-                </div>
-                <div className="flex items-center space-x-1">
-                  <div className="w-2 h-2 rounded-full bg-purple-300"></div>
-                  <span className="text-xs text-gray-500">expense</span>
-                </div>
-              </div>
-              <div className="relative h-64"> */}
-          {/* SVG for finance chart */}
-          {/* <svg
-                  className="w-full h-full"
-                  viewBox="0 0 400 200"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0,100 C50,80 100,120 150,60 C200,20 250,80 300,60 C350,40 400,60 400,40"
-                    fill="none"
-                    stroke="#76A9FA"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M0,140 C50,160 100,120 150,140 C200,160 250,100 300,120 C350,140 400,120 400,140"
-                    fill="none"
-                    stroke="#B794F4"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <div className="absolute left-0 bottom-0 w-full flex justify-between text-xs text-gray-500">
-                  <div>$2600</div>
-                  <div>$2700</div>
-                </div>
-              </div>
-            </div>
-          </Card> */}
-        </div>
-
-        {/* Right Column */}
-        <div className="space-y-6">
           {/* Calendar */}
           <Card>
             <div className="p-4">
@@ -389,7 +321,7 @@ const DashboardHomePage = () => {
           </Card>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
@@ -397,32 +329,22 @@ interface StatsCardProps {
   title: string;
   count: number;
   date: string;
-  color: string;
-  textColor?: string;
 }
 
-const StatsCard = ({
-  title,
-  count,
-  date,
-  color,
-  textColor,
-}: StatsCardProps) => {
+const StatsCard = ({ title, count, date }: StatsCardProps) => {
   return (
-    <div className={`${color} rounded-lg p-4 relative overflow-hidden`}>
-      <div className="absolute top-4 left-4 text-[10px] text-gray-500 bg-white px-2 py-1 rounded-full">
+    <div className="bg-[#1f1f64] rounded-lg p-4 relative overflow-hidden text-white">
+      <div className="absolute top-4 left-4 text-[10px] text-white/70 bg-white/10 px-2 py-1 rounded-full">
         {date}
       </div>
       <Ellipsis
         size={28}
         strokeWidth={4}
-        className="absolute top-4 right-4 text-white"
+        className="absolute top-4 right-4 text-white/70"
       />
       <br />
-      <h1 className={`text-2xl font-semibold my-4 ${textColor}`}>
-        {count.toLocaleString()}
-      </h1>
-      <h2 className="capitalize text-sm font-medium text-gray-500">{title}</h2>
+      <h1 className="text-2xl font-semibold my-4">{count.toLocaleString()}</h1>
+      <h2 className="capitalize text-sm font-medium text-white/80">{title}</h2>
     </div>
   );
 };
@@ -435,17 +357,17 @@ interface CardProps {
 
 const Card = ({ title, children, action }: CardProps) => {
   return (
-    <div className="bg-white rounded-lg shadow overflow-hidden">
+    <div className="bg-white rounded-lg shadow overflow-hidden border border-gray-100">
       {title && (
-        <div className="border-b px-4 py-3 flex justify-between items-center">
-          <h3 className="font-medium">{title}</h3>
+        <div className="border-b border-gray-100 px-4 py-3 flex justify-between items-center bg-[#1f1f64]">
+          <h3 className="font-medium text-white">{title}</h3>
           {action && <div>{action}</div>}
-          <div className="text-gray-400">
+          <div className="text-white/70">
             <svg
               width="16"
               height="4"
               viewBox="0 0 16 4"
-              fill="none"
+              fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
               <circle cx="2" cy="2" r="2" fill="currentColor" />
@@ -455,7 +377,7 @@ const Card = ({ title, children, action }: CardProps) => {
           </div>
         </div>
       )}
-      {children}
+      <div className="p-4">{children}</div>
     </div>
   );
 };
