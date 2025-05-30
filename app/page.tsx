@@ -2,26 +2,28 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+// import { onAuthStateChanged } from "firebase/auth";
+// import { auth } from "@/lib/firebase";
 
 export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    // Check authentication status when the component mounts
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, redirect to dashboard
-        router.push("/dashboard");
-      } else {
-        // No user is signed in, redirect to login page
-        router.push("/login");
-      }
-    });
+    // // Check authentication status when the component mounts
+    // const unsubscribe = onAuthStateChanged(auth, (user) => {
+    //   if (user) {
+    //     // User is signed in, redirect to dashboard
+    //     router.push("/dashboard");
+    //   } else {
+    //     // No user is signed in, redirect to login page
+    //     router.push("/login");
+    //   }
+    // });
 
-    // Cleanup subscription on unmount
-    return () => unsubscribe();
+    // // Cleanup subscription on unmount
+    // return () => unsubscribe();
+
+    router.push("/dashboard");
   }, [router]);
 
   // Show a loading state while checking auth

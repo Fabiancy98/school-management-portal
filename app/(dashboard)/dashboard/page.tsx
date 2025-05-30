@@ -1,7 +1,11 @@
 "use client";
 
 import { ChevronRightIcon, Ellipsis } from "lucide-react";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 import {
   BarChart,
   Bar,
@@ -15,40 +19,41 @@ const DashboardHomePage = () => {
   return (
     <div className="p-6 space-y-6">
       {/* Main Content */}
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <StatsCard
+          title="Students"
+          count={0}
+          date="2024/05"
+          color="bg-[#CFCEFF]"
+          // textColor="text-purple-600"
+        />
+        <StatsCard
+          title="Teachers"
+          count={32}
+          date="2024/05"
+          color="bg-[#FAE27C]"
+          // textColor="text-yellow-600"
+        />
+        <StatsCard
+          title="Parents"
+          count={0}
+          date="2024/05"
+          color="bg-[#CFCEFF]"
+          // textColor="text-purple-600"
+        />
+        <StatsCard
+          title="Staffs"
+          count={0}
+          date="2024/05"
+          color="bg-[#FAE27C]"
+          // textColor="text-yellow-600"
+        />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatsCard
-              title="Students"
-              count={0}
-              date="2024/05"
-              color="bg-[#CFCEFF]"
-              // textColor="text-purple-600"
-            />
-            <StatsCard
-              title="Teachers"
-              count={32}
-              date="2024/05"
-              color="bg-[#FAE27C]"
-              // textColor="text-yellow-600"
-            />
-            <StatsCard
-              title="Parents"
-              count={0}
-              date="2024/05"
-              color="bg-[#CFCEFF]"
-              // textColor="text-purple-600"
-            />
-            <StatsCard
-              title="Staffs"
-              count={0}
-              date="2024/05"
-              color="bg-[#FAE27C]"
-              // textColor="text-yellow-600"
-            />
-          </div>
+        <div className="lg:col-span-2 space-y-6 flex">
           {/* Students Section */}
           <Card title="Students">
             <div className="flex items-center justify-center p-6">
@@ -164,76 +169,83 @@ const DashboardHomePage = () => {
                     }}
                     className="h-full"
                   >
-                  <BarChart
-                    data={[
-                      { name: "Mon", present: 60, absent: 50 },
-                      { name: "Tue", present: 70, absent: 60 },
-                      { name: "Wed", present: 85, absent: 75 },
-                      { name: "Thu", present: 65, absent: 70 },
-                      { name: "Fri", present: 75, absent: 60 },
-                    ]}
-                    margin={{ top: 10, right: 10, left: 10, bottom: 10 }}
-                  >
-                    <CartesianGrid
-                      strokeDasharray="3 3"
-                      vertical={false}
-                      stroke="#e5e7eb"
-                    />
-                    <XAxis
-                      dataKey="name"
-                      axisLine={false}
-                      tickLine={false}
-                      tick={{ fontSize: 12 }}
-                    />
-                    <YAxis
-                      axisLine={false}
-                      tickLine={false}
-                      tick={{ fontSize: 12 }}
-                      domain={[0, 100]}
-                      tickFormatter={(value: number) => `${value}%`}
-                    />
-                    <ChartTooltip
-                      content={
-                        <ChartTooltipContent
-                          indicator="dot"
-                          labelClassName="text-xs"
-                          formatter={(value: unknown) => {
-                            const numValue = Number(value);
-                            const displayName = [60, 70, 85, 65, 75].includes(numValue) ? "Present" : "Absent";
-                            return [`${numValue}% ${displayName}`, null] as [string, null];
-                          }}
-                        />
-                      }
-                    />
-                    <Bar
-                      dataKey="present"
-                      name="Present"
-                      radius={[4, 4, 0, 0]}
-                      barSize={16}
-                      fill="#f59e0b"
+                    <BarChart
+                      data={[
+                        { name: "Mon", present: 60, absent: 50 },
+                        { name: "Tue", present: 70, absent: 60 },
+                        { name: "Wed", present: 85, absent: 75 },
+                        { name: "Thu", present: 65, absent: 70 },
+                        { name: "Fri", present: 75, absent: 60 },
+                      ]}
+                      margin={{ top: 10, right: 10, left: 10, bottom: 10 }}
                     >
-                      <LabelList
+                      <CartesianGrid
+                        strokeDasharray="3 3"
+                        vertical={false}
+                        stroke="#e5e7eb"
+                      />
+                      <XAxis
+                        dataKey="name"
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{ fontSize: 12 }}
+                      />
+                      <YAxis
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{ fontSize: 12 }}
+                        domain={[0, 100]}
+                        tickFormatter={(value: number) => `${value}%`}
+                      />
+                      <ChartTooltip
+                        content={
+                          <ChartTooltipContent
+                            indicator="dot"
+                            labelClassName="text-xs"
+                            formatter={(value: unknown) => {
+                              const numValue = Number(value);
+                              const displayName = [60, 70, 85, 65, 75].includes(
+                                numValue
+                              )
+                                ? "Present"
+                                : "Absent";
+                              return [`${numValue}% ${displayName}`, null] as [
+                                string,
+                                null,
+                              ];
+                            }}
+                          />
+                        }
+                      />
+                      <Bar
                         dataKey="present"
-                        position="top"
-                        formatter={(value: unknown) => `${value}%`}
-                        className="text-xs fill-muted-foreground"
-                      />
-                    </Bar>
-                    <Bar
-                      dataKey="absent"
-                      name="Absent"
-                      radius={[4, 4, 0, 0]}
-                      barSize={16}
-                      fill="#93c5fd"
-                    >
-                      <LabelList
+                        name="Present"
+                        radius={[4, 4, 0, 0]}
+                        barSize={16}
+                        fill="#f59e0b"
+                      >
+                        <LabelList
+                          dataKey="present"
+                          position="top"
+                          formatter={(value: unknown) => `${value}%`}
+                          className="text-xs fill-muted-foreground"
+                        />
+                      </Bar>
+                      <Bar
                         dataKey="absent"
-                        position="top"
-                        formatter={(value: unknown) => `${value}%`}
-                        className="text-xs fill-muted-foreground"
-                      />
-                    </Bar>
-                  </BarChart>
+                        name="Absent"
+                        radius={[4, 4, 0, 0]}
+                        barSize={16}
+                        fill="#93c5fd"
+                      >
+                        <LabelList
+                          dataKey="absent"
+                          position="top"
+                          formatter={(value: unknown) => `${value}%`}
+                          className="text-xs fill-muted-foreground"
+                        />
+                      </Bar>
+                    </BarChart>
                   </ChartContainer>
                 </div>
               </div>
