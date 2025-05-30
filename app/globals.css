@@ -44,6 +44,8 @@
 }
 
 :root {
+  --base-color: #009bd3c4;
+  --base-color-light: #4ac3f7;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -79,6 +81,8 @@
 }
 
 .dark {
+  --base-color: #0095d9;
+  --base-color-light: #00afef;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

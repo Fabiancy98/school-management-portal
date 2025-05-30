@@ -1,3 +1,4 @@
+"use client"
 import {
   Sidebar,
   SidebarContent,
@@ -11,6 +12,7 @@ import {
   SidebarGroupContent,
 } from "@/components/ui/sidebar";
 import * as React from 'react';
+import { usePathname } from 'next/navigation';
 import { LogOut } from "lucide-react";
 import Link from "next/link";
 import { menuItems } from "@/data/items";
@@ -24,11 +26,21 @@ interface MenuItem {
 }
 
 const AppSideBar = () => {
+  const pathname = usePathname();
+  console.log('Current pathname:', pathname);
   // Type the menu items
   const menuItemsData: MenuItem[] = [...menuItems];
+  
+  // Log all menu items for debugging
+  console.log('Menu items:', menuItemsData.map(item => ({
+    label: item.label,
+    href: item.href,
+    isActive: pathname === item.href || 
+             (item.href !== '/dashboard' && pathname.startsWith(item.href))
+  })));
   return (
-    <Sidebar collapsible="icon" className="bg-[#1f1f64] text-white group">
-      <SidebarHeader className="h-16 bg-[#1f1f64] flex items-center justify-center">
+    <Sidebar collapsible="icon" className="bg-white text-black group">
+      <SidebarHeader className="h-16 bg-white flex items-center justify-center">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild className="hover:bg-transparent">
@@ -42,7 +54,7 @@ const AppSideBar = () => {
                     className="w-full h-full object-contain transition-all duration-200"
                   />
                 </div>
-                <h1 className="text-lg font-medium capitalize text-white ml-2 group-data-[collapsible=icon]:hidden transition-all duration-200">
+                <h1 className="text-lg font-medium capitalize text-black ml-2 group-data-[collapsible=icon]:hidden transition-all duration-200">
                   Subeb Portal
                 </h1>
               </Link>
@@ -50,9 +62,9 @@ const AppSideBar = () => {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent className="flex flex-col flex-1 bg-[#1f1f64]">
+      <SidebarContent className="flex flex-col flex-1 bg-white">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-white/70 text-xs font-medium px-4 py-3 group-data-[collapsible=icon]:hidden">
+          <SidebarGroupLabel className="text-black/70 text-xs font-medium px-4 py-3 group-data-[collapsible=icon]:hidden">
             Menu
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -62,7 +74,11 @@ const AppSideBar = () => {
                   <SidebarMenuButton asChild>
                     <Link
                       href={item.href}
-                      className="w-full justify-start text-white/80 hover:bg-white/10 hover:text-white text-base py-3 px-4"
+                      className={`w-full justify-start text-base py-3 px-4 transition-colors duration-200 ${
+                        pathname === item.href || (item.href !== '/dashboard' && pathname.startsWith(item.href))
+                          ? 'bg-[var(--base-color)] text-white' 
+                          : 'text-black/80 hover:bg-[var(--base-color)]/10 hover:text-[var(--base-color)]'
+                      }`}
                     >
                       <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
                         {React.cloneElement(item.icon as React.ReactElement<{ className?: string }>, {
@@ -81,13 +97,13 @@ const AppSideBar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="p-4 border-t border-white/10 bg-[#1f1f64]">
+      <SidebarFooter className="p-4 border-t border-white/10 bg-white">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link 
                 href="/login" 
-                className="text-white/80 hover:bg-white/10 hover:text-white text-base py-3 px-4"
+                className="text-black/80 hover:bg-white/10 hover:text-black text-base py-3 px-4"
               >
                 <LogOut size={20} strokeWidth={1.5} className="w-5 h-5" />
                 <span className="ml-3 group-data-[collapsible=icon]:hidden">
