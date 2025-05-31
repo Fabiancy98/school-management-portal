@@ -26,25 +26,49 @@ const DashboardHomePage = () => {
           title="Students"
           count={0}
           date="2024/05"
-          className="bg-[var(--base-color)] text-white"
+          className="bg-gradient-to-br from-[var(--base-color)] to-[var(--base-color-light)] text-white shadow-lg hover:shadow-xl"
+          dateClassName="bg-white/20 text-white/90"
+          icon={
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          }
         />
         <StatsCard
           title="Teachers"
           count={32}
           date="2024/05"
-          className="bg-white text-black/70"
+          className="bg-white text-black shadow-lg hover:shadow-xl"
+          dateClassName="bg-white/20 text-black/90"
+          icon={
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          }
         />
         <StatsCard
           title="Parents"
           count={0}
           date="2024/05"
-          className="bg-white text-black/70"
+          className="bg-white text-black shadow-lg hover:shadow-xl"
+          dateClassName="bg-white/20 text-black/90"
+          icon={
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+            </svg>
+          }
         />
         <StatsCard
           title="Staffs"
           count={0}
           date="2024/05"
-          className="bg-white text-black/70"
+          className="bg-white text-black shadow-lg hover:shadow-xl"
+          dateClassName="bg-white/20 text-black/90"
+          icon={
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+            </svg>
+          }
         />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -54,8 +78,8 @@ const DashboardHomePage = () => {
         <Card title="Students">
           <div className="flex items-center justify-center p-6">
             <div className="relative w-48 h-48">
-              <div className="w-full h-full rounded-full bg-gray-100 flex items-center justify-center">
-                <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-[var(--base-color-ultra-light)] to-gray-100 flex items-center justify-center shadow-inner">
+                <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center shadow-lg">
                   <div className="flex space-x-2">
                     <div className="text-[var(--base-color)]">
                       <svg
@@ -75,7 +99,7 @@ const DashboardHomePage = () => {
                         />
                       </svg>
                     </div>
-                    <div className="text-[var(--base-color-light)]">
+                    <div className="text-[var(--accent-4)]">
                       <svg
                         width="24"
                         height="48"
@@ -104,8 +128,8 @@ const DashboardHomePage = () => {
                     cy="50"
                     r="45"
                     fill="none"
-                    stroke="#EDF2F7"
-                    strokeWidth="10"
+                    stroke="#f1f5f9"
+                    strokeWidth="8"
                   />
                   <circle
                     cx="50"
@@ -113,23 +137,25 @@ const DashboardHomePage = () => {
                     r="45"
                     fill="none"
                     stroke="var(--base-color)"
-                    strokeWidth="10"
+                    strokeWidth="8"
                     strokeDasharray="283"
                     strokeDashoffset="100"
                     strokeLinecap="round"
                     transform="rotate(-90 50 50)"
+                    className="drop-shadow-sm"
                   />
                   <circle
                     cx="50"
                     cy="50"
                     r="45"
                     fill="none"
-                    stroke="var(--base-color-light)"
-                    strokeWidth="10"
+                    stroke="var(--accent-4)"
+                    strokeWidth="8"
                     strokeDasharray="283"
                     strokeDashoffset="180"
                     strokeLinecap="round"
                     transform="rotate(-90 50 50)"
+                    className="drop-shadow-sm"
                   />
                 </svg>
               </div>
@@ -137,17 +163,17 @@ const DashboardHomePage = () => {
           </div>
           <div className="flex justify-center space-x-12 pb-4">
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-[var(--base-color)]"></div>
+              <div className="w-4 h-4 rounded-full bg-[var(--base-color)] shadow-sm"></div>
               <div>
-                <div className="font-bold">1,234</div>
-                <div className="text-xs text-gray-500">Boys</div>
+                <div className="font-bold text-lg">0</div>
+                <div className="text-sm text-gray-600">Boys</div>
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-[var(--base-color-light)]"></div>
+              <div className="w-4 h-4 rounded-full bg-[var(--accent-4)] shadow-sm"></div>
               <div>
-                <div className="font-bold">1,134</div>
-                <div className="text-xs text-gray-500">Girls</div>
+                <div className="font-bold text-lg">0</div>
+                <div className="text-sm text-gray-600">Girls</div>
               </div>
             </div>
           </div>
@@ -156,8 +182,8 @@ const DashboardHomePage = () => {
         <Card title="Teachers">
           <div className="flex items-center justify-center p-6">
             <div className="relative w-48 h-48">
-              <div className="w-full h-full rounded-full bg-gray-100 flex items-center justify-center">
-                <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-green-50 to-gray-100 flex items-center justify-center shadow-inner">
+                <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center shadow-lg">
                   <div className="flex space-x-2">
                     <div className="text-[var(--base-color)]">
                       <svg
@@ -177,7 +203,7 @@ const DashboardHomePage = () => {
                         />
                       </svg>
                     </div>
-                    <div className="text-[var(--base-color-light)]">
+                    <div className="text-[var(--accent-4)]">
                       <svg
                         width="24"
                         height="48"
@@ -206,8 +232,8 @@ const DashboardHomePage = () => {
                     cy="50"
                     r="45"
                     fill="none"
-                    stroke="#EDF2F7"
-                    strokeWidth="10"
+                    stroke="#f1f5f9"
+                    strokeWidth="8"
                   />
                   <circle
                     cx="50"
@@ -215,23 +241,25 @@ const DashboardHomePage = () => {
                     r="45"
                     fill="none"
                     stroke="var(--base-color)"
-                    strokeWidth="10"
+                    strokeWidth="8"
                     strokeDasharray="283"
-                    strokeDashoffset="100"
+                    strokeDashoffset="130"
                     strokeLinecap="round"
                     transform="rotate(-90 50 50)"
+                    className="drop-shadow-sm"
                   />
                   <circle
                     cx="50"
                     cy="50"
                     r="45"
                     fill="none"
-                    stroke="var(--base-color-light)"
-                    strokeWidth="10"
+                    stroke="var(--accent-4)"
+                    strokeWidth="8"
                     strokeDasharray="283"
-                    strokeDashoffset="180"
+                    strokeDashoffset="200"
                     strokeLinecap="round"
                     transform="rotate(-90 50 50)"
+                    className="drop-shadow-sm"
                   />
                 </svg>
               </div>
@@ -239,17 +267,17 @@ const DashboardHomePage = () => {
           </div>
           <div className="flex justify-center space-x-12 pb-4">
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-[var(--base-color)]"></div>
+              <div className="w-4 h-4 rounded-full bg-[var(--base-color)] shadow-sm"></div>
               <div>
-                <div className="font-bold">1,234</div>
-                <div className="text-xs text-gray-500">Male</div>
+                <div className="font-bold text-lg">13</div>
+                <div className="text-sm text-gray-600">Male</div>
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-[var(--base-color-light)]"></div>
+              <div className="w-4 h-4 rounded-full bg-[var(--accent-4)] shadow-sm"></div>
               <div>
-                <div className="font-bold">1,134</div>
-                <div className="text-xs text-gray-500">Female</div>
+                <div className="font-bold text-lg">19</div>
+                <div className="text-sm text-gray-600">Female</div>
               </div>
             </div>
           </div>
@@ -260,17 +288,17 @@ const DashboardHomePage = () => {
           <div className="p-4">
             <div className="flex items-center justify-between mb-4">
               <button
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-[var(--base-color)] transition-colors"
                 onClick={() => {}}
               >
                 <ChevronRightIcon className="w-4 h-4 rotate-180" />
               </button>
-              <h3 className="font-semibold">
+              <h3 className="font-semibold text-[var(--base-color)]">
                 {new Date().toLocaleString("default", { month: "long" })}{" "}
                 {new Date().getFullYear()}
               </h3>
               <button
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-[var(--base-color)] transition-colors"
                 onClick={() => {}}
               >
                 <ChevronRightIcon className="w-4 h-4" />
@@ -280,7 +308,7 @@ const DashboardHomePage = () => {
               {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day) => (
                 <div
                   key={day}
-                  className="text-xs text-center font-medium py-1 text-gray-500"
+                  className="text-xs text-center font-medium py-2 text-gray-600"
                 >
                   {day}
                 </div>
@@ -345,14 +373,14 @@ const DashboardHomePage = () => {
                   return (
                     <div
                       key={`${day}-${index}`}
-                      className={`text-xs text-center py-1 rounded-md ${
+                      className={`text-sm text-center py-2 rounded-lg transition-colors ${
                         !isCurrentMonth
                           ? "text-gray-300"
                           : isToday
-                            ? "bg-[var(--base-color)] text-white"
+                            ? "bg-gradient-to-r from-[var(--base-color)] to-[var(--base-color-light)] text-white shadow-md"
                             : isWeekend
-                              ? "text-red-500"
-                              : ""
+                              ? "text-red-500 hover:bg-red-50"
+                              : "hover:bg-[var(--base-color-ultra-light)]"
                       }`}
                     >
                       {day}
@@ -371,20 +399,20 @@ const DashboardHomePage = () => {
               <div className="w-full h-full">
                 <ChartContainer
                   config={{
-                    present: { color: "var(--base-color-light)" }, // Lighter shade of base color
-                    absent: { color: "var(--base-color)" }, // Base color
+                    present: { color: "var(--base-color)" },
+                    absent: { color: "var(--accent-3)" },
                   }}
                   className="h-full"
                 >
                   <BarChart
                     data={[
-                      { name: "Mon", present: 60, absent: 50 },
-                      { name: "Tue", present: 70, absent: 60 },
-                      { name: "Wed", present: 85, absent: 75 },
-                      { name: "Thu", present: 65, absent: 70 },
-                      { name: "Fri", present: 75, absent: 60 },
+                      { name: "Mon", present: 85, absent: 15 },
+                      { name: "Tue", present: 90, absent: 10 },
+                      { name: "Wed", present: 78, absent: 22 },
+                      { name: "Thu", present: 92, absent: 8 },
+                      { name: "Fri", present: 88, absent: 12 },
                     ]}
-                    margin={{ top: 10, right: 10, left: 10, bottom: 10 }}
+                    margin={{ top: 20, right: 10, left: 10, bottom: 10 }}
                   >
                     <CartesianGrid
                       strokeDasharray="3 3"
@@ -395,12 +423,12 @@ const DashboardHomePage = () => {
                       dataKey="name"
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 12, fill: "#64748b" }}
                     />
                     <YAxis
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 12 }}
+                      tick={{ fontSize: 12, fill: "#64748b" }}
                       domain={[0, 100]}
                       tickFormatter={(value: number) => `${value}%`}
                     />
@@ -408,7 +436,8 @@ const DashboardHomePage = () => {
                       content={
                         <ChartTooltipContent
                           indicator="dot"
-                          labelClassName="text-xs"
+                          labelClassName="text-xs font-medium"
+                          className="bg-white shadow-lg border border-gray-200 rounded-lg"
                           formatter={(value: unknown) => {
                             const numValue = Number(value);
                             const displayName = [60, 70, 85, 65, 75].includes(
@@ -515,17 +544,39 @@ interface StatsCardProps {
   count: number;
   date: string;
   className?: string;
+  dateClassName?: string;
+  icon?: React.ReactNode;
 }
 
-const StatsCard = ({ title, count, date, className }: StatsCardProps) => {
+const StatsCard = ({
+  title,
+  count,
+  date,
+  className = "",
+  dateClassName = "",
+  icon,
+}: StatsCardProps) => {
   return (
-    <div className={`rounded-lg p-4 relative overflow-hidden ${className}`}>
-      <div className="absolute top-4 left-4 text-[10px] text-gray-500 bg-white px-2 py-1 rounded-full">
+    <div
+      className={`relative rounded-xl p-6 overflow-hidden transition-all duration-300 ${className}`}
+    >
+      <div className={`absolute top-4 right-4 text-xs font-medium  px-3 py-1 rounded-full backdrop-blur-sm ${dateClassName}`}>
         {date}
       </div>
-      <br />
-      <h1 className="text-2xl font-semibold my-4">{count.toLocaleString()}</h1>
-      <h2 className="capitalize text-sm font-medium">{title}</h2>
+
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-sm font-medium uppercase tracking-wider opacity-90">
+            {title}
+          </h2>
+          <h1 className="text-3xl font-bold mt-1">{count.toLocaleString()}</h1>
+        </div>
+        {icon && <div className="bg-white/20 p-2 rounded-lg">{icon}</div>}
+      </div>
+
+      {/* Decorative elements */}
+      <div className="absolute -right-4 -bottom-4 w-20 h-20 rounded-full bg-white/10"></div>
+      <div className="absolute -right-2 -bottom-2 w-10 h-10 rounded-full bg-white/20"></div>
     </div>
   );
 };
@@ -538,27 +589,33 @@ interface CardProps {
 
 const Card = ({ title, children, action }: CardProps) => {
   return (
-    <div className="bg-white rounded-lg shadow overflow-hidden border border-gray-100">
+    <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow duration-300">
       {title && (
-        <div className="border-b border-gray-100 px-4 py-3 flex justify-between items-center bg-[var(--base-color)]">
-          <h3 className="font-medium text-white">{title}</h3>
-          {action && <div>{action}</div>}
-          <div className="text-white/70">
-            <svg
-              width="16"
-              height="4"
-              viewBox="0 0 16 4"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="2" cy="2" r="2" fill="currentColor" />
-              <circle cx="8" cy="2" r="2" fill="currentColor" />
-              <circle cx="14" cy="2" r="2" fill="currentColor" />
-            </svg>
+        <div className="border-b border-gray-100 px-6 py-4 flex justify-between items-center bg-white">
+          <h3 className="font-medium text-black/90 text-lg">{title}</h3>
+          <div className="flex items-center space-x-2">
+            {action && (
+              <div className="text-black/80 hover:text-black transition-colors">
+                {action}
+              </div>
+            )}
+            <button className="text-black/70 hover:text-black transition-colors p-1 -mr-2">
+              <svg
+                width="16"
+                height="4"
+                viewBox="0 0 16 4"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="2" cy="2" r="2" fill="currentColor" />
+                <circle cx="8" cy="2" r="2" fill="currentColor" />
+                <circle cx="14" cy="2" r="2" fill="currentColor" />
+              </svg>
+            </button>
           </div>
         </div>
       )}
-      <div className="p-4">{children}</div>
+      <div className="p-6">{children}</div>
     </div>
   );
 };

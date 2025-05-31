@@ -41,18 +41,60 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-base: var(--base-color);
+  --color-base-light: var(--base-color-light);
+  --color-minor: var(--minor-color);
+  --color-minor-light: var(--minor-color-light);
+  --color-minor-2: var(--minor-color-2);
+  --color-minor-2-light: var(--minor-color-2-light);
 }
 
 :root {
-  --base-color: #009bd3c4;
-  --base-color-light: #4ac3f7;
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  /* Primary Government Colors */
+  --base-color: #00afef; /* Primary Cyan Blue */
+  --base-color-light: #33c1f0; /* Lighter Cyan Blue */
+  --base-color-dark: #0099d6; /* Darker Cyan Blue */
+  --base-color-ultra-light: #b3e7fb; /* Very Light Blue for backgrounds */
+
+  /* Professional Government Accent Colors */
+  --accent-1: #1e40af; /* Professional Blue */
+  --accent-1-light: #3b82f6; /* Lighter Professional Blue */
+  --accent-2: #059669; /* Government Green */
+  --accent-2-light: #10b981; /* Lighter Green */
+  --accent-3: #dc2626; /* Official Red */
+  --accent-3-light: #ef4444; /* Lighter Red */
+  --accent-4: #ec268f; /* Pink */
+  --accent-4-light: #ef44a1; /* Lighter Pink */
+  --accent-5: #ea580c; /* Professional Orange */
+  --accent-5-light: #f97316; /* Lighter Orange */
+
+  /* Status Colors */
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #00afef;
+
+  /* Neutral Colors */
+  --background: #f8fafc; /* Light Gray */
+  --foreground: #1e293b; /* Dark Blue-Gray */
+  --muted: #f1f5f9; /* Very Light Gray */
+  --muted-foreground: #64748b; /* Medium Gray */
+  --border: #e2e8f0; /* Light Border */
+  --input: #e2e8f0; /* Input Background */
+  --ring: #7dd3fc; /* Focus Ring with base color tint */
+
+  /* Card Colors */
+  --card: #ffffff; /* White */
+  --card-foreground: #1e293b; /* Dark Text */
+  --card-border: #e2e8f0; /* Light Border */
+  --card-shadow: 0 1px 3px rgba(0, 175, 239, 0.1);
+
+  /* Popover */
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+
+  /* Radius */
+  --radius: 0.75rem; /* 12px */
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
@@ -65,11 +107,14 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  
+  /* Updated Chart Colors for Government Theme */
+  --chart-1: #00afef; /* Primary Blue */
+  --chart-2: #059669; /* Government Green */
+  --chart-3: #1e40af; /* Professional Blue */
+  --chart-4: #7c3aed; /* Royal Purple */
+  --chart-5: #ea580c; /* Professional Orange */
+  
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -81,8 +126,8 @@
 }
 
 .dark {
-  --base-color: #0095d9;
-  --base-color-light: #00afef;
+  --base-color: #00afef;
+  --base-color-light: #33c1f0;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -101,14 +146,17 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  
+  /* Dark mode chart colors */
+  --chart-1: #33c1f0;
+  --chart-2: #10b981;
+  --chart-3: #3b82f6;
+  --chart-4: #8b5cf6;
+  --chart-5: #f97316;
+  
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: #00afef;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
