@@ -103,7 +103,7 @@ const AppSideBar = () => {
             <SidebarMenuButton asChild>
               <Link 
                 href="/login" 
-                className="text-black/80 hover:bg-white/10 hover:text-black text-base py-3 px-4"
+                className="text-black/80 hover:bg-white/10 hover:text-black py-3 px-4"
               >
                 <LogOut size={20} strokeWidth={1.5} className="w-5 h-5" />
                 <span className="ml-3 group-data-[collapsible=icon]:hidden">

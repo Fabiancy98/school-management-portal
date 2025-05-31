@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon, GraduationCap } from "lucide-react";
 import {
   ChartContainer,
   ChartTooltip,
@@ -12,7 +12,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  LabelList,
 } from "recharts";
 
 const DashboardHomePage = () => {
@@ -27,19 +26,17 @@ const DashboardHomePage = () => {
           count={0}
           date="2024/05"
           className="bg-gradient-to-br from-[var(--base-color)] to-[var(--base-color-light)] text-white shadow-lg hover:shadow-xl"
-          dateClassName="bg-white/20 text-white/90"
+          dateClassName="bg-white/20 text-white"
           icon={
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-            </svg>
+            <GraduationCap />
           }
         />
         <StatsCard
           title="Teachers"
           count={32}
           date="2024/05"
-          className="bg-white text-black shadow-lg hover:shadow-xl"
-          dateClassName="bg-white/20 text-black/90"
+          className="bg-gradient-to-br from-[var(--accent-4)] to-[var(--accent-4-light)] text-white shadow-lg hover:shadow-xl"
+          dateClassName="bg-white/20 text-white"
           icon={
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
@@ -50,8 +47,8 @@ const DashboardHomePage = () => {
           title="Parents"
           count={0}
           date="2024/05"
-          className="bg-white text-black shadow-lg hover:shadow-xl"
-          dateClassName="bg-white/20 text-black/90"
+          className="bg-gradient-to-br from-[var(--base-color)] to-[var(--base-color-light)] text-white shadow-lg hover:shadow-xl"
+          dateClassName="bg-white/20 text-white"
           icon={
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
@@ -62,8 +59,8 @@ const DashboardHomePage = () => {
           title="Staffs"
           count={0}
           date="2024/05"
-          className="bg-white text-black shadow-lg hover:shadow-xl"
-          dateClassName="bg-white/20 text-black/90"
+          className="bg-gradient-to-br from-[var(--accent-4)] to-[var(--accent-4-light)] text-white shadow-lg hover:shadow-xl"
+          dateClassName="bg-white/20 text-white"
           icon={
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
@@ -394,28 +391,43 @@ const DashboardHomePage = () => {
 
         {/* Attendance Section */}
         <Card title="Attendance">
-          <div className="p-4">
-            <div className="h-64">
-              <div className="w-full h-full">
+          <div className="p-1">
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 rounded-sm bg-[var(--base-color)]"></div>
+                  <span className="text-xs text-gray-600">Total Present</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 rounded-sm bg-[var(--accent-4)]"></div>
+                  <span className="text-xs text-gray-600">Total Absent</span>
+                </div>
+              </div>
+            </div>
+            <div className="h-48 mt-2">
+              <div className="w-full h-full overflow-hidden">
                 <ChartContainer
                   config={{
                     present: { color: "var(--base-color)" },
-                    absent: { color: "var(--accent-3)" },
+                    absent: { color: "var(--accent-4)" },
                   }}
-                  className="h-full"
-                >
+                  className="h-full">
                   <BarChart
                     data={[
-                      { name: "Mon", present: 85, absent: 15 },
-                      { name: "Tue", present: 90, absent: 10 },
-                      { name: "Wed", present: 78, absent: 22 },
-                      { name: "Thu", present: 92, absent: 8 },
-                      { name: "Fri", present: 88, absent: 12 },
+                      { name: "Mon", present: 250, absent: 70 },
+                      { name: "Tue", present: 200, absent: 30 },
+                      { name: "Wed", present: 220, absent: 55 },
+                      { name: "Thu", present: 150, absent: 45 },
+                      { name: "Fri", present: 200, absent: 50 },
+                      { name: "Sat", present: 250, absent: 20 }
                     ]}
-                    margin={{ top: 20, right: 10, left: 10, bottom: 10 }}
+                    margin={{ top: 10, right: 0, left: 0, bottom: 5 }}
+                    barGap={2}
+                    barSize={14}
                   >
-                    <CartesianGrid
-                      strokeDasharray="3 3"
+                    <CartesianGrid 
+                      strokeDasharray="3 3" 
+                      horizontal={true}
                       vertical={false}
                       stroke="#e5e7eb"
                     />
@@ -423,76 +435,46 @@ const DashboardHomePage = () => {
                       dataKey="name"
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 12, fill: "#64748b" }}
+                      tick={{ fontSize: 10, fill: "#64748b" }}
+                      dy={5}
                     />
                     <YAxis
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 12, fill: "#64748b" }}
-                      domain={[0, 100]}
-                      tickFormatter={(value: number) => `${value}%`}
+                      tick={{ fontSize: 10, fill: "#64748b" }}
+                      domain={[0, 300]}
+                      tickCount={4}
+                      width={30}
                     />
                     <ChartTooltip
+                      cursor={false}
                       content={
                         <ChartTooltipContent
                           indicator="dot"
                           labelClassName="text-xs font-medium"
                           className="bg-white shadow-lg border border-gray-200 rounded-lg"
-                          formatter={(value: unknown) => {
-                            const numValue = Number(value);
-                            const displayName = [60, 70, 85, 65, 75].includes(
-                              numValue
-                            )
-                              ? "Present"
-                              : "Absent";
-                            return [`${numValue}% ${displayName}`, null] as [
-                              string,
-                              null,
-                            ];
+                          formatter={(value: unknown, name: unknown) => {
+                            const nameStr = String(name);
+                            const displayName = nameStr === "present" ? "Total Present" : "Total Absent";
+                            return [`${value} ${displayName}`, null] as [string, null];
                           }}
                         />
                       }
                     />
                     <Bar
                       dataKey="present"
-                      name="Present"
+                      name="present"
                       radius={[4, 4, 0, 0]}
-                      barSize={16}
-                      fill="var(--base-color-light)"
-                    >
-                      <LabelList
-                        dataKey="present"
-                        position="top"
-                        formatter={(value: unknown) => `${value}%`}
-                        className="text-xs fill-muted-foreground"
-                      />
-                    </Bar>
+                      fill="var(--base-color)"
+                    />
                     <Bar
                       dataKey="absent"
-                      name="Absent"
+                      name="absent"
                       radius={[4, 4, 0, 0]}
-                      barSize={16}
-                      fill="var(--base-color)"
-                    >
-                      <LabelList
-                        dataKey="absent"
-                        position="top"
-                        formatter={(value: unknown) => `${value}%`}
-                        className="text-xs fill-muted-foreground"
-                      />
-                    </Bar>
+                      fill="var(--accent-4)"
+                    />
                   </BarChart>
                 </ChartContainer>
-              </div>
-            </div>
-            <div className="flex justify-center gap-6 mt-2">
-              <div className="flex items-center">
-                <div className="w-3 h-3 rounded-full bg-[var(--base-color-light)] mr-1"></div>
-                <span className="text-xs">Present</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-3 h-3 rounded-full bg-[var(--base-color)] mr-1"></div>
-                <span className="text-xs">Absent</span>
               </div>
             </div>
           </div>
@@ -560,18 +542,18 @@ const StatsCard = ({
     <div
       className={`relative rounded-xl p-6 overflow-hidden transition-all duration-300 ${className}`}
     >
-      <div className={`absolute top-4 right-4 text-xs font-medium  px-3 py-1 rounded-full backdrop-blur-sm ${dateClassName}`}>
+      <div className={`absolute top-4 right-4 text-xs font-bold  px-3 py-1 rounded-full backdrop-blur-sm ${dateClassName}`}>
         {date}
       </div>
 
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-medium uppercase tracking-wider opacity-90">
+          <h2 className="text-sm font-bold uppercase tracking-wider opacity-90">
             {title}
           </h2>
           <h1 className="text-3xl font-bold mt-1">{count.toLocaleString()}</h1>
         </div>
-        {icon && <div className="bg-white/20 p-2 rounded-lg">{icon}</div>}
+        {icon && <div className="bg-white/20 p-2 rounded-lg mt-6">{icon}</div>}
       </div>
 
       {/* Decorative elements */}
